@@ -1,0 +1,48 @@
+font {
+  font-family: sans-serif;
+  text-align: center;
+  colo
+
+}
+
+form{
+    height: 710px;
+    width: 1800px;
+    padding: 40px;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+body {
+  font-size: small;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+#navibereich li {
+  display: inline;            /* Listenelemente nebeneinander */
+  list-style-type: none;      /* Aufzählungszeichen entfernen */
+}
+#navibereich {
+  background-color: #FFFFFF;        /* Hintergrundfarbe für die Navigation */
+  padding: 10px 0;                   /* Innenabstand: oben/unten 4px, li/re 0 */
+  margin: 0;                        /* Keinen Außenabstand */
+}
+#navibereich a {
+  color: black;                  /* Schriftfarbe schwarz */
+  text-decoration: none;         /* Unterstreichung entfernen */
+  padding: 4px 8px;              /* oben/unten 4px, re/li 8px */
+}
+#navibereich a:hover {
+}
+#navibereich a:hover,        /* mit Komma am Ende */
+#startseite #navi01 a,       /* mit Komma am Ende */
+#kontaktseite #navi02 a {    /* ohne Komma am Ende */
+}
+#navibereich a:hover,
+#startseite #navi01 a,
+#kontaktseite #navi02 a {
+  background-repeat: repeat-x;           /* von links nach rechts wiederholen */
+  background-position: top left;         /* oben links beginnen */
+}

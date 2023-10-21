@@ -30,26 +30,10 @@ $errors =[];
         }
         if (empty($errors)) {
 
-            $activation_code = md5(rand());
-            $sql = "INSERT INTO users (username, email, password, activation_code) VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
             $stmt = $db->prepare($sql);
-            if ($stmt->execute([$username, $email, password_hash($pwd, PASSWORD_DEFAULT), $activation_code])) {
-
-                 //header("location: login.php");
-
-                $mail_link = "http://localhost/email_verify.php";
-                $mail_link .= '?email=' .$email;
-                $mail_link .= '&activation_code=' .$activation_code;
-
-                if(mail($email, 'Anmeldebestätigung', $mail_link, "From: Webmaster")){
-                  echo "Anmeldung erfolgreich. Bitte bestätige deinen E-Mail Link.";
-                }
-                else {
-                    $sql = "DELETE FROM users WHERE email = ?";
-                    $stmt = $db->prepare($sql);
-                    $stmt->execute([$email]);
-                    array_push($errors, 'Fehler beim Speichern der Bestätigungsemail.');
-                }
+            if ($stmt->execute([$username, $email, password_hash($pwd, PASSWORD_DEFAULT)])) {
+              header("location: index.php");
             }
             else{
                 array_push($errors, 'Es ist ein Fehler aufgetretern.');
